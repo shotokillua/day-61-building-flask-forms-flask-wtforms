@@ -1,0 +1,64 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+        <div class="container">
+		<h1>Login</h1>
+        <!-- This is where our form will go. -->
+		<form method="POST" action="{{ url_for('login') }}" novalidate>
+			<p>
+			{{ form.csrf_token }}
+			</p>
+			<p>
+				{{ form.email.label }} <br> {{ form.email(size=30) }}
+				{% for err in form.email.errors %}
+				<span style="color:red">{{ err }}</span>
+				{% endfor %}
+			</p>
+
+			<p>
+				{{ form.pw.label }} <br> {{ form.pw(size=30) }}
+				{% for err in form.pw.errors %}
+				<span style="color:red">{{ err }}</span>
+				{% endfor %}
+			</p>
+			<p>
+				{{ form.submit }}
+			</p>
+		</form>
+        </div>
+{% endblock %}
+<!--
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Login</title>
+	</head>
+	<body>
+        <div class="container">
+		<h1>Login</h1>
+        &lt;!&ndash; This is where our form will go. &ndash;&gt;
+		<form method="POST" action="{{ url_for('login') }}" novalidate>
+			<p>
+			{{ form.csrf_token }}
+			</p>
+			<p>
+				{{ form.email.label }} <br> {{ form.email(size=30) }}
+				{% for err in form.email.errors %}
+				<span style="color:red">{{ err }}</span>
+				{% endfor %}
+			</p>
+
+			<p>
+				{{ form.pw.label }} <br> {{ form.pw(size=30) }}
+				{% for err in form.pw.errors %}
+				<span style="color:red">{{ err }}</span>
+				{% endfor %}
+			</p>
+			<p>
+				{{ form.submit }}
+			</p>
+		</form>
+        </div>
+	</body>
+</html>-->
